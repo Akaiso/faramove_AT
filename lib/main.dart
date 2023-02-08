@@ -1,8 +1,7 @@
-import 'package:faramove_assessment_test/view/home_page.dart';
-import 'package:faramove_assessment_test/view/podcast_playing.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:faramove_assessment_test/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
   SystemChrome.setPreferredOrientations(
@@ -19,14 +18,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Faramove Assessment Test',
       theme: ThemeData(
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
               color: Colors.white,
-              systemOverlayStyle: SystemUiOverlayStyle.light)),
+              systemOverlayStyle: SystemUiOverlayStyle.dark)),
       debugShowCheckedModeBanner: false,
-      home: PodcastPlayingPage(),
+      // home: const PodcastPlayingPage(),
+      // home: const HomePage(),
+      // home: const CommunityPage(),
+      initialRoute: "/home",
+      onGenerateRoute: appRouter,
     );
   }
 }

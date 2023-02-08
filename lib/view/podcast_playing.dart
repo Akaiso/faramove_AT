@@ -16,7 +16,13 @@ class _PodcastPlayingPageState extends State<PodcastPlayingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        toolbarHeight: 0,
+        shadowColor: Colors.transparent,
+      ),
+      backgroundColor:
+          const Color.fromRGBO(255, 255, 255, 1), //Color(0xffE5E5E5),
       body: SafeArea(
         child: Stack(
           children: [
@@ -191,24 +197,12 @@ class _PodcastPlayingPageState extends State<PodcastPlayingPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          child: Text('1x'),
-                        ),
-                        Container(
-                          child:
-                              SvgPicture.asset('assets/images/svg/rewind.svg'),
-                        ),
-                        Container(
-                          child: SvgPicture.asset('assets/images/svg/play.svg'),
-                        ),
-                        Container(
-                          child: SvgPicture.asset(
-                              'assets/images/svg/fastForward.svg'),
-                        ),
-                        Container(
-                          child: SizedBox(
-                            width: 20,
-                          ),
+                        const Text('1x'),
+                        SvgPicture.asset('assets/images/svg/rewind.svg'),
+                        SvgPicture.asset('assets/images/svg/play.svg'),
+                        SvgPicture.asset('assets/images/svg/fastForward.svg'),
+                        const SizedBox(
+                          width: 20,
                         ),
                       ],
                     ),
@@ -236,7 +230,8 @@ class _PodcastPlayingPageState extends State<PodcastPlayingPage> {
                                   color: Colors.white),
                             ),
                             Chip(
-                              backgroundColor: Color(0XFFBAD0F7),
+                              backgroundColor:
+                                  const Color.fromRGBO(89, 148, 240, 1),
                               label: SizedBox(
                                   width: 90,
                                   child: Row(

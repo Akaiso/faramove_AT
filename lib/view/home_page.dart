@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../constants.dart';
+import '../widgets/bottom_nav.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,7 +12,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor:
+          const Color.fromRGBO(255, 255, 255, 1), //Color(0xffE5E5E5),
       appBar: AppBar(
         elevation: 0,
         leadingWidth: 70,
@@ -33,13 +38,13 @@ class HomePage extends StatelessWidget {
           SvgPicture.asset(
             'assets/images/svg/inbox.svg',
           ),
-          SizedBox(
+          const SizedBox(
             width: 15,
           ),
           SvgPicture.asset(
             'assets/images/svg/notification.svg',
           ),
-          SizedBox(
+          const SizedBox(
             width: 20,
           )
         ],
@@ -50,7 +55,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             children: [
               ListTile(
-                tileColor: Color(0xffF1F6FE),
+                tileColor:  kTiles,
                 leading: SvgPicture.asset(
                   'assets/images/svg/caution.svg',
                 ),
@@ -68,8 +73,13 @@ class HomePage extends StatelessWidget {
                   width: MediaQuery.of(context).size.width * 0.1,
                   child: Row(
                     children: [
-                      SvgPicture.asset(
-                        'assets/images/svg/next_arrow.svg',
+                      InkWell(
+                        onTap: () {
+                          Get.toNamed("/pod");
+                        },
+                        child: SvgPicture.asset(
+                          'assets/images/svg/next_arrow.svg',
+                        ),
                       ),
                     ],
                   ),
@@ -143,7 +153,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Container(
-                color: Color(0xffF8F9FB),
+                color: kTiles1,
                 height: 4,
               ),
               Padding(
@@ -161,7 +171,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Container(
-                color: Color(0xffF8F9FB),
+                color: kTiles1,
                 height: 4,
               ),
               Padding(
@@ -186,63 +196,9 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        color: const Color.fromRGBO(250, 252, 255, 0.8),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Tab(
-              icon: SvgPicture.asset('assets/images/svg/home_icon.svg'),
-              child: Text(
-                'Home',
-                style: GoogleFonts.mulish(
-                    fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ),
-            Tab(
-              icon: SvgPicture.asset(
-                'assets/images/svg/resources_icon.svg',
-                height: 20,
-              ),
-              child: Text(
-                'Resources',
-                style: GoogleFonts.mulish(
-                    fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ),
-            Tab(
-              icon: SvgPicture.asset('assets/images/svg/session_icon.svg'),
-              child: Text(
-                'Session',
-                style: GoogleFonts.mulish(
-                    fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ),
-            Tab(
-              icon: SvgPicture.asset(
-                'assets/images/svg/community_icon.svg',
-                height: 20,
-              ),
-              child: Text(
-                'Community',
-                style: GoogleFonts.mulish(
-                    fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ),
-            Tab(
-              icon: SvgPicture.asset(
-                'assets/images/svg/account_icon.svg',
-                height: 25,
-              ),
-              child: Text(
-                'Account',
-                style: GoogleFonts.mulish(
-                    fontSize: 12, fontWeight: FontWeight.w400),
-              ),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: bottomNav(),
     );
   }
+
+
 }
