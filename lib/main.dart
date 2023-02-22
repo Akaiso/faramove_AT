@@ -1,15 +1,20 @@
 import 'package:faramove_assessment_test/router/app_router.dart';
+import 'package:faramove_assessment_test/view/home_page.dart';
+import 'package:faramove_assessment_test/view/homely.dart';
+import 'package:faramove_assessment_test/view/landing_page.dart';
+import 'package:faramove_assessment_test/view/signin.dart';
+import 'package:faramove_assessment_test/widgets/bottom_tabs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() {
-  SystemChrome.setPreferredOrientations(
-      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.white,
-    statusBarColor: Colors.white,
-  ));
+  // SystemChrome.setPreferredOrientations(
+  //     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+  // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  //   systemNavigationBarColor: Colors.white,
+  //   statusBarColor: Colors.white,
+  // ));
   runApp(const MyApp());
 }
 
@@ -26,10 +31,11 @@ class MyApp extends StatelessWidget {
               systemOverlayStyle: SystemUiOverlayStyle.dark)),
       debugShowCheckedModeBanner: false,
       // home: const PodcastPlayingPage(),
-      // home: const HomePage(),
+      // home: const HomelyPage(),
+      home: const LandingPage(),
       // home: const CommunityPage(),
-      initialRoute: "/home",
-      onGenerateRoute: appRouter,
+      // initialRoute: "/home",
+      // onGenerateRoute: appRouter,
     );
   }
 }
