@@ -58,6 +58,7 @@ class LandingPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           SizedBox(
+            height: MediaQuery.of(context).size.height * 0.07,
             width: MediaQuery.of(context).size.width * 0.4,
             child: ElevatedButton(
               onPressed: () {
@@ -77,6 +78,7 @@ class LandingPage extends StatelessWidget {
             ),
           ),
           SizedBox(
+            height: MediaQuery.of(context).size.height * 0.07,
             width: MediaQuery.of(context).size.width * 0.4,
             child: ElevatedButton(
               onPressed: () {
